@@ -1,7 +1,10 @@
+import java.lang.Exception;
+
 public class BankruptTester {
     public static void main(String[] args){
         int seedMoney = Integer.parseInt(args[0]);
-        profitCalculator(int seedMoney);
+        int difficultyLevel = Integer.parseInt(args[1]);
+        profitCalculator (seedMoney, difficultyLevel);
     }
 
 
@@ -9,20 +12,20 @@ public class BankruptTester {
         double random =+ Math.round(Math.random() * 10000) / 100;
         return random;
     }
-    private static double incomeMoney() {
-        double random =+ Math.round(Math.random() * 10000) / 100;
+    private static double incomeMoney(int difficultyLevel) {
+        double random =+ Math.round(Math.random() * (10000 * difficultyLevel)) / 100;
         return random;
     }
-    private static void profitCalculator(int seedMoney) {
+    private static void profitCalculator(int seedMoney, int difficultyLevel) {
         try{
-
+            int count = 0;
             while(true) {
 
                 double spentMoney = spentMoney();
-                double money = incomeMoney() + seedMoney;
-
-                if( money - spentMoney < 0){
-                    System.out.println("Your store lasted " + i + " days without going bankrupt.");
+                double money = incomeMoney(difficultyLevel) + seedMoney;
+                count++;
+                if( money - spentMoney <= 0){
+                    System.out.println("Your store lasted " + count + " days without going bankrupt.");
                     break;
                 }
             }
