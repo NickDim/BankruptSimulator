@@ -13,8 +13,10 @@ public class BankruptTester {
         return random;
     }
     private static double incomeMoney(int difficultyLevel) {
+
         double random =+ Math.round(Math.random() * (10000 * difficultyLevel)) / 100;
         return random;
+
     }
     private static void profitCalculator(int seedMoney, int difficultyLevel) {
         try{
@@ -24,7 +26,7 @@ public class BankruptTester {
                 double spentMoney = spentMoney();
                 double money = incomeMoney(difficultyLevel) + seedMoney;
                 count++;
-                if( money - spentMoney <= 0){
+                if( money - spentMoney < 0){
                     System.out.println("Your store lasted " + count + " days without going bankrupt.");
                     break;
                 }
